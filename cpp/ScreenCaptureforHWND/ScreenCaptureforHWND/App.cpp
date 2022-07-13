@@ -61,7 +61,9 @@ void App::StartCapture(HWND hwnd)
 		m_capture->Close();
 		m_capture = nullptr;
 	}
-
+    std::wstringstream s;
+    s << "Capturing window: " << hwnd << std::endl;
+    OutputDebugString(s.str().c_str());
 	auto item = CreateCaptureItemForWindow(hwnd);
 
     m_capture = std::make_unique<SimpleCapture>(m_device, item);

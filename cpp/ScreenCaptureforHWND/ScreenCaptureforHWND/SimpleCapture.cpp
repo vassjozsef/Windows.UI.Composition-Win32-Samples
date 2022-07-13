@@ -95,6 +95,14 @@ void SimpleCapture::OnFrameArrived(
 {
     auto newSize = false;
 
+    m_captured++;
+
+    if (!(m_captured % 100)) {
+        std::wstringstream s;
+        s << "Frame captured: " << m_captured << std::endl;
+        OutputDebugString(s.str().c_str());
+    }
+
     {
         auto frame = sender.TryGetNextFrame();
 		auto frameContentSize = frame.ContentSize();

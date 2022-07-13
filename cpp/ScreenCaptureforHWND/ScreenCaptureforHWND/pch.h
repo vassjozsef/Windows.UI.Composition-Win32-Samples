@@ -20,6 +20,7 @@
 // STL
 #include <atomic>
 #include <memory>
+#include <sstream>
 
 // D3D
 #include <d3d11_4.h>
